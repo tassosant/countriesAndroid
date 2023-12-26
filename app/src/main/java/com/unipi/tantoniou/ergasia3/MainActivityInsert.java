@@ -26,7 +26,7 @@ public class MainActivityInsert extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_insert);
         sqLiteDatabase = openOrCreateDatabase("CountryDB.db",MODE_PRIVATE,null);
-       // mapInputs();
+        mapInputs();
 //        Intent intent = getIntent();
 //        try{
 //            database = (Database) intent.getSerializableExtra("SQLite");
@@ -71,11 +71,11 @@ public class MainActivityInsert extends AppCompatActivity {
         country.setPopulation(population.getText().toString());
     }
 
-//    private void mapInputs(){
-//        countryName = findViewById(R.id.editTextCountryName);
-//        capital = findViewById(R.id.editTextCountryCapital);
-//        population = findViewById(R.id.editTextCountryPopulation);
-//    }
+    private void mapInputs(){
+        countryName = findViewById(R.id.editTextCountryName);
+        capital = findViewById(R.id.editTextCountryCapital);
+        population = findViewById(R.id.editTextCountryPopulation);
+    }
 
     private void showMessage(String title, String message){
         new AlertDialog.Builder(this)
