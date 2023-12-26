@@ -2,7 +2,9 @@ package com.unipi.tantoniou.ergasia3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.unipi.tantoniou.ergasia3.models.Country;
 
@@ -28,5 +30,20 @@ public class MainActivityInsert extends AppCompatActivity {
         parameters[0] = country.getName();
         parameters[1] = country.getCapital();
         parameters[2] = country.getPopulation();
+    }
+
+    public void navigateFromInsertToHome(View view){
+        Intent intent = new Intent(this, MainActivityHome.class);
+
+        startActivity(intent);
+    }
+    public void navigateFromInsertToFind(View view){
+        Intent intent = new Intent(this, MainActivityFind.class);
+
+        startActivity(intent);
+    }
+
+    public void addCountry(View view){
+
     }
 }

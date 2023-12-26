@@ -3,12 +3,13 @@ package com.unipi.tantoniou.ergasia3;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 
 
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivityHome extends AppCompatActivity {
 
     SQLiteDatabase database;
 
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_home);
         initDB();
     }
 
@@ -42,6 +43,17 @@ public class MainActivity extends AppCompatActivity {
         createTableSQLString = stringBuilder.toString();
     }
 
+    public void navigateFromHomeToFind(View view){
+        Intent intent = new Intent(this, MainActivityFind.class);
+
+        startActivity(intent);
+    }
+
+    public void navigateFromHomeToInsert(View view){
+        Intent intent = new Intent(this, MainActivityInsert.class);
+
+        startActivity(intent);
+    }
     //find by name
     //findAll
     //update by id

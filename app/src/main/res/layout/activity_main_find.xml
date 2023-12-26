@@ -4,23 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivityInsert">
+    tools:context=".MainActivityFind">
 
-    <Button
-        android:id="@+id/buttonInsertCountry2"
+    <TextView
+        android:id="@+id/textViewFindCountry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="addCountry"
-        android:text="Save"
+        android:text="Search a country"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613" />
+        app:layout_constraintVertical_bias="0.056" />
 
     <EditText
-        android:id="@+id/editTextCountryName2"
+        android:id="@+id/editTextCountryName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -33,70 +33,42 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.161" />
 
-    <EditText
-        android:id="@+id/editTextCountryPopulation2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Country Population"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.425" />
-
-    <TextView
-        android:id="@+id/textViewFindCountry2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Find a country"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056" />
-
-    <EditText
-        android:id="@+id/editTextCountryCapital2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Country Capital"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.288" />
-
     <Button
-        android:id="@+id/buttonInsertToHome"
+        android:id="@+id/buttonFindCountry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="navigateFromInsertToHome"
-        android:text="Home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.83" />
-
-    <Button
-        android:id="@+id/buttonInsertToHome2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="navigateFromInsertToFind"
+        android:onClick="search"
         android:text="Search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.77"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.83" />
+        app:layout_constraintVertical_bias="0.302" />
+
+    <Button
+        android:id="@+id/buttonFindCountryToHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="navigateFromFindToHome"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.441" />
+
+    <Button
+        android:id="@+id/buttonFindCountryToInsert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="navigateFromFindToInsert"
+        android:text="Insert a country"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.44" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
