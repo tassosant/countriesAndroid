@@ -1,5 +1,6 @@
 package com.unipi.tantoniou.ergasia3;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -11,7 +12,9 @@ import android.view.View;
 
 public class MainActivityHome extends AppCompatActivity {
 
-    SQLiteDatabase database;
+    SQLiteDatabase sqLiteDatabase;
+
+//    Database database;
 
     String createTableSQLString;
 
@@ -23,13 +26,19 @@ public class MainActivityHome extends AppCompatActivity {
     }
 
     private void initDB(){
-        database = openOrCreateDatabase("CountryDB.db",MODE_PRIVATE,null);
+//        if(database==null) {
+//            database = new Database();
+//        }else{
+//            database = (Database) getIntent().getSerializableExtra("SQLite");
+//        }
+        sqLiteDatabase = openOrCreateDatabase("CountryDB.db",MODE_PRIVATE,null);
+//        database.setSqLiteDatabase(sqLiteDatabase);
         createCountriesTable();
     }
 
     private void createCountriesTable(){
         createCountriesTableSQL();
-        database.execSQL(createTableSQLString);
+        sqLiteDatabase.execSQL(createTableSQLString);
     }
 
     private void createCountriesTableSQL(){
@@ -45,14 +54,24 @@ public class MainActivityHome extends AppCompatActivity {
 
     public void navigateFromHomeToFind(View view){
         Intent intent = new Intent(this, MainActivityFind.class);
-
+        //intent.putExtra("SQLite", database);
         startActivity(intent);
     }
 
     public void navigateFromHomeToInsert(View view){
-        Intent intent = new Intent(this, MainActivityInsert.class);
+//        try {
 
-        startActivity(intent);
+            Intent intent = new Intent(this, MainActivityInsert.class);
+            //intent.putExtra("SQLite", database);
+            startActivity(intent);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            new AlertDialog.Builder(this)
+//                    .setTitle("Error")
+//                    .setMessage(e.getMessage())
+//                    .setCancelable(true)
+//                    .show();
+//        }
     }
     //find by name
     //findAll
