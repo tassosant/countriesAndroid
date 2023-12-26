@@ -33,18 +33,16 @@ public class MainActivityFind extends AppCompatActivity {
     }
 
     public void search(){
-        String selectSQL = "Select * from Movie";
+        String selectSQL = "Select * from Country";
         Cursor cursor = sqLiteDatabase.rawQuery(selectSQL,null);
         StringBuilder builder = new StringBuilder();
         while (cursor.moveToNext()){
-            builder.append("Title: ").append(cursor.getString(0)).append("\n");
-            builder.append("Director: ").append(cursor.getString(1)).append("\n");
-            builder.append("Category: ").append(cursor.getString(2)).append("\n");
-            builder.append("Year: ").append(cursor.getString(3)).append("\n");
-            builder.append("Rating: ").append(cursor.getString(4)).append("\n");
+            builder.append("Name: ").append(cursor.getString(0)).append("\n");
+            builder.append("Capital: ").append(cursor.getString(1)).append("\n");
+            builder.append("Population: ").append(cursor.getString(2)).append("\n");
             builder.append("-------------------------------------\n");
         }
-        showMessage("Movies in DB",builder.toString());
+        showMessage("Countries in DB",builder.toString());
     }
     private void showMessage(String title, String message){
         new AlertDialog.Builder(this)
