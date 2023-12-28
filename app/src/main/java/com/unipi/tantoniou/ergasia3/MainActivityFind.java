@@ -17,6 +17,7 @@ public class MainActivityFind extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_find);
+
         sqLiteDatabase = openOrCreateDatabase("CountryDB.db",MODE_PRIVATE,null);
     }
 
@@ -32,17 +33,22 @@ public class MainActivityFind extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void search(){
-        String selectSQL = "Select * from Country";
-        Cursor cursor = sqLiteDatabase.rawQuery(selectSQL,null);
-        StringBuilder builder = new StringBuilder();
-        while (cursor.moveToNext()){
-            builder.append("Name: ").append(cursor.getString(0)).append("\n");
-            builder.append("Capital: ").append(cursor.getString(1)).append("\n");
-            builder.append("Population: ").append(cursor.getString(2)).append("\n");
-            builder.append("-------------------------------------\n");
+    public void search(View view){
+        try {
+
+            String selectSQL = "SELECT * FROM Country";
+            Cursor cursor = sqLiteDatabase.rawQuery(selectSQL,null);
+            StringBuilder builder = new StringBuilder();
+            while (cursor.moveToNext()){
+                builder.append("Name: ").append(cursor.getString(cursor.getColumnIndex("Name"))).append("\n");
+                builder.append("Capital: ").append(cursor.getString(cursor.getColumnIndex("Capital"))).append("\n");
+                builder.append("Population: ").append(cursor.getInt(cursor.getColumnIndex("Population"))).append("\n");
+                builder.append("-------------------------------------\n");
+            }
+                showMessage("Countries in DB",builder.toString());
+        }catch (Exception e){
+            showMessage("Error", e.getMessage());
         }
-        showMessage("Countries in DB",builder.toString());
     }
     private void showMessage(String title, String message){
         new AlertDialog.Builder(this)

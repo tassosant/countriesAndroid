@@ -38,17 +38,23 @@ public class MainActivityHome extends AppCompatActivity {
 
     private void createCountriesTable(){
         createCountriesTableSQL();
-        sqLiteDatabase.execSQL(createTableSQLString);
+        sqLiteDatabase.beginTransaction();
+        try {
+            sqLiteDatabase.execSQL(createTableSQLString);
+            sqLiteDatabase.setTransactionSuccessful();
+        }finally {
+            sqLiteDatabase.endTransaction();
+        }
     }
 
     private void createCountriesTableSQL(){
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("CREATE TABLE if not exists Country (");
-        stringBuilder.append("Name TEXT NOT NULL,");
-        stringBuilder.append("Capital TEXT NOT NULL,");
-        stringBuilder.append("Population INTEGER NOT NULL,");
+        stringBuilder.append("Name TEXT NOT NULL, ");
+        stringBuilder.append("Capital TEXT NOT NULL, ");
+        stringBuilder.append("Population INTEGER NOT NULL, ");
         stringBuilder.append("CountryId INTEGER PRIMARY KEY AUTOINCREMENT");
-        stringBuilder.append(")");
+        stringBuilder.append(");");
         createTableSQLString = stringBuilder.toString();
     }
 

@@ -38,12 +38,18 @@ public class MainActivityInsert extends AppCompatActivity {
 
 
     private void constructInsertQuery(){
-        String insertSQL = "Insert into Country(Name, Capital, Population) values(?,?,?)";
-        String[] parameters = new String[5];
+        String insertSQL = "Insert into Country (Name, Capital, Population) values (?,?,?)";
+        Object[] parameters = new Object[3];
         parameters[0] = country.getName();
         parameters[1] = country.getCapital();
-        parameters[2] = country.getPopulation();
-        sqLiteDatabase.execSQL(insertSQL,parameters);
+        parameters[2] = Integer.valueOf(country.getPopulation());
+        //parameters[2] = country.getPopulation();
+        try {
+
+            sqLiteDatabase.execSQL(insertSQL,parameters);
+        }catch (Exception e){
+            showMessage("Error", e.getMessage());
+        }
         showMessage("Info","Country inserted!");
     }
 
