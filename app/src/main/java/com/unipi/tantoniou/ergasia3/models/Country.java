@@ -1,7 +1,10 @@
 package com.unipi.tantoniou.ergasia3.models;
 
 public class Country {
-    private Long id;
+
+
+
+    private int id;
 
     private String name;
 
@@ -9,6 +12,13 @@ public class Country {
 
     private String capital;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
     public String getCapital() {
         return capital;
     }
