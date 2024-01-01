@@ -197,7 +197,7 @@ public class MainActivityFind extends AppCompatActivity {
 
                         Set<Integer> ids = hashMap.keySet();
 
-                        Log.d("which button:",String.valueOf(whichButton));
+
 
                         int counter = 0;
                         for(int id:ids){
@@ -251,9 +251,10 @@ public class MainActivityFind extends AppCompatActivity {
     }
 
     private void fillTheFields(int id){
-
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM Country WHERE CountryId="+id,null);
+        String[] selectedArgs = {String.valueOf(id)};
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM Country WHERE CountryId=?;",selectedArgs);
         if(cursor.moveToFirst()) {
+            this.country = new Country();
             this.country.setName(cursor.getString(cursor.getColumnIndex("Name")));
             this.country.setCapital(cursor.getString(cursor.getColumnIndex("Capital")));
             this.country.setPopulation(cursor.getString(cursor.getColumnIndex("Population")));
